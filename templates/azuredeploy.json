@@ -96,10 +96,6 @@
         }
     ],
     "outputs": {
-        "apimPrivateIpAddress": {
-            "type": "string",
-            "value": "[reference(variables('apiMgmtName')).privateIPAddresses[0]]"
-        },
         "apimDnsName": {
             "type": "array",
             "value": "[split(replace(reference(variables('apiMgmtName')).gatewayUrl, 'https://', ''), '.')]"
