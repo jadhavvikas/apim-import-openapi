@@ -78,7 +78,7 @@
                 "[resourceId('Microsoft.ApiManagement/service', variables('apiMgmtName'))]"
             ],
             "copy": {
-                "count": "[parameters('apis')]",
+                "count": "[length(parameters('apis'))]",
                 "name": "apiCopy",
                 "mode": "Serial"
             },
