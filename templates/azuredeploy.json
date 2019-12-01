@@ -84,7 +84,6 @@
                 "mode": "Serial"
             },
             "properties": {
-
                 "displayName": "[parameters('apis')[copyIndex()].path]",
                 "format": "[parameters('apis')[copyIndex()].format]",
                 "value": "[parameters('apis')[copyIndex()].value]",
