@@ -43,7 +43,7 @@
     "resources": [
         {
             "type": "Microsoft.ApiManagement/service",
-            "apiVersion": "2018-06-01-preview",
+            "apiVersion": "2019-01-01",
             "name": "[variables('apiMgmtName')]",
             "location": "[resourceGroup().location]",
             "tags": "[parameters('tags')]",
@@ -73,7 +73,7 @@
         },
         {
             "type": "Microsoft.ApiManagement/service/apis",
-            "apiVersion": "2018-06-01-preview",
+            "apiVersion": "2019-01-01",
             "name": "[concat(variables('apiMgmtName'), '/', parameters('apis')[copyIndex()].path)]",
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', variables('apiMgmtName'))]"
@@ -84,6 +84,7 @@
                 "mode": "Serial"
             },
             "properties": {
+
                 "displayName": "[parameters('apis')[copyIndex()].path]",
                 "format": "[parameters('apis')[copyIndex()].format]",
                 "value": "[parameters('apis')[copyIndex()].value]",
