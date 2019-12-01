@@ -11,12 +11,12 @@
         "apis": {
             "value": [
                 {
-                    "format": "openapi",
+                    "format": "openapi-link",
                     "value": "https://conferenceapi.azurewebsites.net?format=json",
                     "path": "dev-conference-api"
                 },
                 {
-                    "format": "openapi",
+                    "format": "openapi-link",
                     "value": "https://conferenceapi.azurewebsites.net?format=json",
                     "path": "test-conference-api"
                 }
