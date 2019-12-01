@@ -57,7 +57,7 @@
                 "publisherEmail": "[parameters('publisherEmail')]",
                 "publisherName": "[parameters('publisherName')]",
                 "notificationSenderEmail": "[parameters('notificationSenderEmail')]",
-                "virtualNetworkConfiguration": "[if(equals(parameters('virtualNetworkType'), 'External'), variables('virtualNetworkConfiguration'), json('null'))]",
+                "virtualNetworkConfiguration": "[if(not(equals(parameters('virtualNetworkType'), 'None')), variables('virtualNetworkConfiguration'), json('null'))]",
                 "customProperties": {
                     "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10": "False",
                     "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11": "False",
