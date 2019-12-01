@@ -11,14 +11,16 @@
         "apis": {
             "value": [
                 {
-                    "format": "openapi-link",
+                    "format": "swagger-json",
                     "value": "https://conferenceapi.azurewebsites.net?format=json",
-                    "path": "dev-conference-api"
+                    "path": "dev-conference-api",
+                    "serviceUrl": "https://conferenceapi.azurewebsites.net"
                 },
                 {
-                    "format": "openapi-link",
+                    "format": "swagger-json",
                     "value": "https://conferenceapi.azurewebsites.net?format=json",
-                    "path": "test-conference-api"
+                    "path": "test-conference-api",
+                    "serviceUrl": "https://conferenceapi.azurewebsites.net"
                 }
             ]
         },

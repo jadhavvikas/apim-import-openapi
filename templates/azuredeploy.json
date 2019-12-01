@@ -88,6 +88,7 @@
                 "format": "[parameters('apis')[copyIndex()].format]",
                 "value": "[parameters('apis')[copyIndex()].value]",
                 "path": "[parameters('apis')[copyIndex()].path]",
+                "serviceUrl": "[parameters('apis')[copyIndex()].serviceUrl]",
                 "protocols": [
                     "http",
                     "https"
