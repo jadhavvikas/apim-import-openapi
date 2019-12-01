@@ -73,7 +73,7 @@
         {
             "type": "Microsoft.ApiManagement/service/apis",
             "apiVersion": "2018-06-01-preview",
-            "name": "[concat(variables('apiMgmtName'), '/', parameters('apis')[copyIndex().path])]",
+            "name": "[concat(variables('apiMgmtName'), '/', parameters('apis')[copyIndex()].path)]",
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', variables('apiMgmtName'))]"
             ],
