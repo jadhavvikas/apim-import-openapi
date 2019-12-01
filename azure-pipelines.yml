@@ -11,6 +11,7 @@ variables:
   projectName: apim
   resourceGroupName: "$(projectName)-rg"
   tags: '{"costCentre":"478132","project":"$(projectName)"}'
+  timeStamp: $[format('{0:yyyy}-{0:MM}-{0:dd}-{0:HHmmss}', pipeline.startTime)]
 
 stages:
 - stage: 'release'
