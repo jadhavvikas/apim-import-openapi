@@ -1,0 +1,40 @@
+# Pipeline to deploy APIM
+
+name: deployAzureResources
+
+trigger:
+- master
+
+variables:
+  serviceConnection: 'Azure CXP FTA Internal Subscription CBELLEE (b2375b5f-8dab-4436-b87c-32bc7fdce5d0)'
+  location: australiaeast
+  projectName: apim
+  resourceGroupName: "$(projectName)-rg"
+  tags: '{"costCentre":"478132","project":"$(projectName)"}'
+
+stages:
+- stage: 'release'
+  displayName: 'environment release'
+  jobs:
+    - job: 'dev_release_job'
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+        - task: AzureResourceGroupDeployment@2
+          name: 'deployResources'
+          displayName: 'Deploy resources'
+          enabled: true
+          inputs:
+            action: Create Or Update Resource Group
+            azureSubscription: $(serviceConnection)
+            resourceGroupName: $(resourceGroupName)
+            csmFile: ./templates/azuredeploy.json
+            csmParametersFile: ./templates/azuredeploy.parameters.json
+            location: $(location)
+            templateLocation: Linked artifact
+            deploymentMode: Incremental
+            deploymentName: "resourceDeployment-$(timeStamp)"
+            outputVariable: resourceTemplateOutput
+            overrideParameters: 
+
+     

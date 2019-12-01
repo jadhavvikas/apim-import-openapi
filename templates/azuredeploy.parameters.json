@@ -1,0 +1,50 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "apimSku": {
+            "value": {
+                "name": "Developer",
+                "capacity": 1
+            }
+        },
+        "apis": {
+            "value": [
+                {
+                    "format": "swagger-link-json",
+                    "value": "https://conferenceapi.azurewebsites.net?format=json",
+                    "path": "dev-conference-api"
+                },
+                {
+                    "format": "swagger-link-json",
+                    "value": "https://conferenceapi.azurewebsites.net?format=json",
+                    "path": "test-conference-api"
+                }
+            ]
+        },
+        "subnetId": {
+            "value": ""
+        },
+        "publisherEmail": {
+            "value": "me@home.net"
+        },
+        "publisherName": {
+            "value": "me"
+        },
+        "notificationSenderEmail": {
+            "value": "me@home.net"
+        },
+        "deploymentMode": {
+            "value": "Incremental"
+        },
+        "virtualNetworkType": {
+            "value": "External"
+        },
+        "tags": {
+            "value": {
+                "costCenter": "123456789",
+                "dept": "it"
+            }
+        }
+    }
+}
