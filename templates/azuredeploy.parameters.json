@@ -34,9 +34,6 @@
         "notificationSenderEmail": {
             "value": "me@home.net"
         },
-        "deploymentMode": {
-            "value": "Incremental"
-        },
         "virtualNetworkType": {
             "value": "External"
         },
