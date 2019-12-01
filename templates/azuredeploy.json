@@ -27,7 +27,7 @@
                 "External",
                 "None"
             ],
-            "defaultValue": "External"
+            "defaultValue": "None"
         },
         "tags": {
             "type": "object"
@@ -35,7 +35,10 @@
     },
     "variables": {
         "resgpguid": "[substring(replace(guid(resourceGroup().id), '-', ''), 0, 6)]",
-        "apiMgmtname": "[concat('api-mgmt-', variables('resgpguid'))]"
+        "apiMgmtname": "[concat('api-mgmt-', variables('resgpguid'))]",
+        "virtualNetworkConfiguration": {
+            "subnetResourceId": "[parameters('subnetId')]"
+        }
     },
     "resources": [
         {
@@ -54,9 +57,7 @@
                 "publisherEmail": "[parameters('publisherEmail')]",
                 "publisherName": "[parameters('publisherName')]",
                 "notificationSenderEmail": "[parameters('notificationSenderEmail')]",
-                "virtualNetworkConfiguration": {
-                    //"subnetResourceId": "[parameters('subnetId')]"
-                },
+                "virtualNetworkConfiguration": "[if(equals(parameters('virtualNetworkType'), 'External'), variables('virtualNetworkConfiguration'), json('null'))]",
                 "customProperties": {
                     "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10": "False",
                     "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11": "False",
